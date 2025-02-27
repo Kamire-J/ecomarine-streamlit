@@ -5,7 +5,7 @@ st.set_page_config(page_title="EcoMarine", layout="wide")
 
 # Sidebar Navigation
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Go to", ["Home", "Marine", "Market", "Analytics"])
+page = st.sidebar.radio("Go to", ["Home", "Marine Map", "Marketplace", "Analytics"])
 
 # Home Page
 if page == "Home":
@@ -44,9 +44,9 @@ if page == "Home":
         st.write("Connect fishers directly with buyers for fair trade.")
 
 # Load other pages
-elif page == "Marine":
+elif page == "Marine Map":
     exec(open("pages/marine.py").read())
-elif page == "Market":
+elif page == "Marketplace":
     exec(open("pages/market.py").read())
 elif page == "Analytics":
     exec(open("pages/analytics.py").read())
