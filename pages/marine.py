@@ -126,8 +126,11 @@ layer_migration = pdk.Layer(
     "ScatterplotLayer",
     filtered_data,
     get_position=["longitude", "latitude"],
-    get_fill_color=[200, 30, 0, 160],
-    get_radius=50000,
+    get_fill_color=[255, 0, 0],
+    get_radius=400,
+    pickable=True,
+    auto_highlight=True,
+    get_tooltip = {"html": "<b>Species:</b> {species}"}
 )
 
 direction_layer = pdk.Layer(
@@ -135,8 +138,12 @@ direction_layer = pdk.Layer(
     filtered_data,
     get_source_position=["longitude", "latitude"],
     get_target_position=["target_longitude", "target_latitude"],
-    get_color=[0, 0, 255, 160],
-    get_width=2000,
+    get_color=[0, 255, 0],
+    get_width=3,
+    highlight_color=[255, 255, 0],
+    picking_radius=10,
+    auto_highlight=True,
+    pickable=True,
 )
 
 st.pydeck_chart(pdk.Deck(layers=[layer_migration, direction_layer], initial_view_state=view_state))
